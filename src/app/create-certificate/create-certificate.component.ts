@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CertificateService } from '../certificate.service';
 
 @Component({
   selector: 'app-create-certificate',
@@ -12,7 +13,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CreateCertificateComponent {
   registerForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private certificateService: CertificateService) {
     this.registerForm = this.fb.group({
       prenom: ['', Validators.required],
       middleName: ['', Validators.required],
@@ -20,7 +21,8 @@ export class CreateCertificateComponent {
       cin: ['', Validators.required],
       birthDate: ['', Validators.required],
       deliveranceDate: ['', Validators.required],
-      expirationDate: [''], // Optional, so no Validators.requiredhonor: ['', Validators.required],
+      expirationDate: [''], // Optional, so no Validators.required
+      honor: ['', Validators.required],
       diplomaTitle: ['', Validators.required],
       diplomaLink: ['', Validators.required],
     });
@@ -28,11 +30,17 @@ export class CreateCertificateComponent {
 
   onSubmit(): void {
     if (this.registerForm.valid) {
-      console.log('Form Submitted', this.registerForm.value);
-      // Perform your form submission logic here
+      this.certificateService.createCertificate(this.registerForm.value)
+        .subscribe(
+          (response) => {
+            console.log('Certificate created successfully', response);
+          },
+          (error) => {
+            console.error('Error creating certificate', error);
+          }
+        );
     } else {
       console.log('Form not valid');
     }
   }
-  
 }

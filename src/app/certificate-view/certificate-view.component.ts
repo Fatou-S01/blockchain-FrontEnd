@@ -15,9 +15,7 @@ export class CertificateViewComponent {
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    // Récupérez l'ID de la route et chargez les détails du certificat
     const certificateId = this.route.snapshot.paramMap.get('id');
-    // Utilisez l'ID pour récupérer les détails du certificat à partir d'un service ou d'un tableau de données
 
     const allCertificates = [
       {

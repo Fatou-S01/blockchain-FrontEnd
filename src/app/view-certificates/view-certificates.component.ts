@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CertificateService } from '../certificate.service';
 
 @Component({
   selector: 'app-view-certificates',
@@ -8,45 +9,41 @@ import { Component } from '@angular/core';
     '../accueil/accueil.component.css',
   ],
 })
-export class ViewCertificatesComponent {
-  certificateDetails = [
-    {
-      prenom: 'John',
-      nom: 'Doe',
-      annee_naissance: '1998',
-      annee_graduation: '2020',
-      degree_classification: 'First Class Honors',
-      date_of_issue: '01/07/2020',
-    },
-    {
-      prenom: 'Jane',
-      nom: 'Smith',
-      annee_naissance: '1997',
-      annee_graduation: '2019',
-      degree_classification: 'Upper Second Class Honors',
-      date_of_issue: '01/07/2019',
-    },
-    {
-      prenom: 'Larry',
-      nom: 'Bird',
-      annee_naissance: '1996',
-      annee_graduation: '2018',
-      degree_classification: 'Lower Second Class Honors',
-      date_of_issue: '01/07/2018',
-    },
-  ];
+export class ViewCertificatesComponent implements OnInit {
+  certificateDetails: any[] = [];
 
-  constructor() {}
+  constructor(private certificateService: CertificateService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loadCertificates();
+  }
 
+  loadCertificates(): void {
+    this.certificateService.getAllCertificates().subscribe(
+      (data) => {
+        this.certificateDetails = data;
+        console.log('Certificates loaded successfully', data);
+      },
+      (error) => {
+        console.error('Error loading certificates', error);
+      }
+    );
+  }
   cancelCertificate(item: any): void {
-    const index = this.certificateDetails.indexOf(item);
-    if (index > -1) {
-      this.certificateDetails.splice(index, 1); // Supprime l'élément du tableau
-      console.log(
-        `Certificate for ${item.prenom} ${item.nom} has been canceled.`
+    if (confirm(`Are you sure you want to cancel the certificate for ${item.prenom} ${item.nom}?`)) {
+      this.certificateService.cancelCertificate(item.id).subscribe(
+        () => {
+          const index = this.certificateDetails.indexOf(item);
+          if (index > -1) {
+            this.certificateDetails.splice(index, 1); // Supprime l'élément du tableau
+            console.log(`Certificate for ${item.prenom} ${item.nom} has been canceled.`);
+          }
+        },
+        (error) => {
+          console.error('Error canceling certificate', error);
+        }
       );
     }
   }
+  
 }
