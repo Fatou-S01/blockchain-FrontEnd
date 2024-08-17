@@ -1,0 +1,63 @@
+body{
+  background-color: #f6f6f6;
+}
+.form{
+  display: flex;
+  flex-direction: row;
+ 
+}
+.container{
+  
+  width: 50%;
+  padding:2em;
+  
+}
+.Nom{
+ 
+  margin-left: 4em;
+}
+.field1{
+  
+  display: flex;
+  flex-direction: row;
+}
+
+.input1,#id_prenom,#id_nom,#id_établissement,#id_serie,#id_date_de_naissance,#id_nationalite,#id_adresse,#id_phone,#id_email,#id_option{
+  border-color: #2a9e9e;
+}
+#submit1{
+  background-color: #2a9e9e;
+  border-color: #2a9e9e;
+  margin-top: 25px;
+  margin-left: 18em;
+  padding: 0.5em;
+  width: 10em;
+}
+#id_prenom,#id_nom,#id_établissement,#id_serie,#id_adresse,#id_phone,#id_date_de_naissance,#id_nationalite,#id_email,#id_option{
+  width: 18em;
+  height: 2em;
+}
+#id_email{
+  width: 41em;
+  height: 2em;
+}
+.texte{
+  text-align: center;
+  font-size: 2em;
+}
+.user{
+  width: 25rem;
+  height: 45rem;
+}
+
+.section{
+  border-top: solid #2a9e9e;
+  width: 5.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5rem;
+}
+
+.text-input{
+  margin-top: 20px;
+}

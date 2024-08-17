@@ -1,0 +1,31 @@
+<div class="d-flex h-100 text-dark cover">
+  <div class="cover-container d-flex w-100 h-100 flex-column">
+    <header class="mb-auto">
+      <div>
+        <h3 class="float-md-start mb-0">CertManagement</h3>
+      </div>
+    </header>
+  
+    <main class="main_accueil">
+      <h1>Bienvenue dans votre plateforme CertManagement</h1>
+      <p class="lead">Une plateforme permettant à tout étudiant ou nouveau bachelier de candidater aux différents concours des grandes écoles du Sénégal</p>
+    </main>
+    <p class="lead lead_between">
+      <a *ngIf="role === 'issuer'" routerLink="/create-certificate" class="btn btn-lg btn-secondary fw-bold border-white bg-dark text-white">Create certificate</a>
+      <a *ngIf="role === 'issuer'" routerLink="/view-certificates" class="btn btn-lg btn-secondary fw-bold border-white bg-white">View certificates</a>
+      <a *ngIf="role === 'recipient'" routerLink="/view-my-certificates" class="btn btn-lg btn-secondary fw-bold border-white bg-white">View my certificate</a>
+      <a *ngIf="role === 'verifier'" routerLink="/verify-certificate" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Verify certificates</a>
+    </p>
+  </div>
+  
+  <div class="cover-container d-flex w-100 h-100 flex-column">
+    <nav class="nav nav-masthead justify-content-center float-md-end">
+      <a class="nav-link active" aria-current="page" routerLink="/" routerLinkActive="active">Home</a>
+      <a class="nav-link" routerLink="/features" routerLinkActive="active">Features</a>
+      <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+      <button (click)="logout()" class="btn btn-danger">Déconnexion</button>
+
+    </nav>
+    <img src="../../assets/hero-img.png" alt="accueil">
+  </div>
+</div>

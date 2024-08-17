@@ -1,0 +1,73 @@
+<div class="d-flex h-100 text-dark cover">
+  <div class="cover-container d-flex w-100 h-100 flex-column">
+      <header class="mb-auto">
+          <div>
+              <h3 class="float-md-start mb-0">CertManagement</h3>
+          </div>
+      </header>
+  </div>
+  <div class="cover-container d-flex w-100 h-100 flex-column">
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+          <a class="nav-link active" aria-current="page" routerLink="/accueil" routerLinkActive="active">Home</a>
+          <a class="nav-link" routerLink="/features" routerLinkActive="active">Features</a>
+          <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+      </nav>
+  </div>
+</div>
+<div class="text-center">
+  <h2 class="texte">Create Certificate</h2>
+  <div class="section"></div>
+</div>
+<div class="form">
+  <div class="container">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+          <div class="field1">
+              <div class="text-input">
+                  <p>Prénom</p>
+                  <input formControlName="prenom" type="text" class="form-control">
+              </div>
+              <div class="text-input">
+                  <p>Deuxième prénom</p>
+                  <input formControlName="middleName" type="text" class="form-control">
+              </div>
+              <div class="text-input">
+                  <p>Nom</p>
+                  <input formControlName="nom" type="text" class="form-control">
+              </div>
+          </div>
+          <div class="field1">
+              <div class="text-input">
+                  <p>CIN</p>
+                  <input formControlName="cin" type="text" class="form-control">
+              </div>
+              <div class="text-input">
+                  <p>Date de naissance</p>
+                  <input formControlName="birthDate" type="date" class="form-control">
+              </div>
+          </div>
+          <div class="field1">
+              <div class="text-input">
+                  <p>Date de délivrance</p>
+                  <input formControlName="deliveranceDate" type="date" class="form-control">
+              </div>
+              <div class="text-input">
+                  <p>Date d'expiration</p>
+                  <input formControlName="expirationDate" type="date" class="form-control">
+              </div>
+          </div>
+          <div class="text-input">
+              <p>Honneur</p>
+              <input formControlName="honor" type="text" class="form-control">
+          </div>
+          <div class="text-input">
+              <p>Titre du diplôme</p>
+              <input formControlName="diplomaTitle" type="text" class="form-control">
+          </div>
+          <div class="text-input">
+              <p>Lien vers le diplôme</p>
+              <input formControlName="diplomaLink" type="url" class="form-control">
+          </div>
+          <input type="submit" value="Soumettre" id="submit1" class="btn btn-primary mt-3">
+      </form>
+  </div>
+</div>

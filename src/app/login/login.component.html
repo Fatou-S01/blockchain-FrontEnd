@@ -1,0 +1,28 @@
+<div style="margin-top: 2rem;">
+  <div>
+    <h2 class="sign_in">
+      <i id="logo228" style="font-size: 25px;">Certificate</i>
+      <i id="logo118" style="font-size: 25px;">Management</i>
+    </h2>
+  </div>
+  <div class="sign_in">
+    <div class="sign_in1" style="padding: 2.5rem;">
+      <form (ngSubmit)="onSubmit()" class="form1" style="padding: 2rem;">
+        <h3 style="text-align: center;">Connexion</h3>
+        
+        <label class="label4">Adresse mail</label>
+        <input required type="text" [(ngModel)]="email" name="mail" class="input_log"/>
+        
+        <label class="label4">Mot de passe</label>
+        <input required type="password" [(ngModel)]="password" name="password" class="input_log"/>
+        
+        <input type="submit" value="Se connecter" id="login_button"/>
+      </form>
+      
+      <div style="display: flex; flex-direction: row;">
+        <p style="margin-top: 0px;">Vous n'avez pas de compte ?</p>
+        <a style="color: #2a9e9e;" routerLink="/">Inscrivez-vous ici</a>
+      </div>
+    </div>
+  </div>
+</div>

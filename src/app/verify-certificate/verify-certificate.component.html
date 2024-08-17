@@ -1,0 +1,43 @@
+<div class="d-flex h-100 text-dark cover">
+  <div class="cover-container d-flex w-100 h-100 flex-column">
+    <header class="mb-auto">
+      <div>
+        <h3 class="float-md-start mb-0">CertManagement</h3>
+      </div>
+    </header>
+  
+  </div>
+  
+  <div class="cover-container d-flex w-100 h-100 flex-column">
+    <nav class="nav nav-masthead justify-content-center float-md-end">
+      <a class="nav-link active" aria-current="page" routerLink="/accueil" routerLinkActive="active">Home</a>
+      <a class="nav-link" routerLink="/features" routerLinkActive="active">Features</a>
+      <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+    </nav>
+  </div>
+</div>
+
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Vérification du Certificat</h2>
+  <div class="section"></div>
+
+  <form (ngSubmit)="verifyCertificate()" class="needs-validation" novalidate>
+    <div class="mb-3">
+      <label for="certHash" class="form-label">Hash du Certificat :</label>
+      <input id="certHash" formControlName="certHash" class="form-control" required>
+      <div class="invalid-feedback">Veuillez entrer le hash du certificat.</div>
+    </div>
+    <div class="mb-3">
+      <label for="certImage" class="form-label">Ou télécharger l'image du certificat :</label>
+      <input id="certImage" type="file" class="form-control" (change)="onFileChange($event)">
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Vérifier</button>
+  </form>
+
+  <div *ngIf="verificationResult" class="mt-4">
+    <h3>Résultat de la vérification :</h3>
+    <p class="alert alert-info">{{verificationResult}}</p>
+  </div>
+</div>
+

@@ -1,0 +1,47 @@
+<div style="margin-top: 1rem;">
+  <div>
+    <h2 class="sign_in">
+      <i id="logo228" style="font-size: 25px;">Certificate</i><i id="logo118" style="font-size: 25px;">Management</i>
+    </h2>
+  </div>
+  <div class="sign_in">
+    <div class="sign_in1">
+      <form (ngSubmit)="onSubmit()" class="form1" style="padding: 2rem;">
+        <h3 style="text-align: center;">Inscription</h3>
+        <div style="display: flex; flex-direction: row;">
+          <div style="display: flex; flex-direction: column;">
+            <label>Prénom</label>
+            <input required type="text" [(ngModel)]="first_name" name="first_name" class="input_log" />
+          </div>
+
+          <div style="display: flex; flex-direction: column; margin-left: 2rem;">
+            <label>Nom</label>
+            <input required type="text" [(ngModel)]="last_name" name="last_name" class="input_log" />
+          </div>
+        </div>
+
+        <label class="label4">Nom d'utilisateur</label>
+        <input required type="text" [(ngModel)]="username" name="username" class="input_log" />
+
+        <label class="label4">Rôle</label>
+        <select id="role" [(ngModel)]="role" name="role" class="form-control">  <!-- Ajout du name="role" -->
+          <option value="issuer">Délivreur</option>
+          <option value="recipient">Récipiendaire</option>
+          <option value="verifier">Vérificateur</option>
+        </select>
+
+        <label class="label4">Adresse mail</label>
+        <input required type="email" [(ngModel)]="email" name="email" class="input_log" />
+
+        <label class="label4">Mot de passe</label>
+        <input required type="password" [(ngModel)]="password" name="password" class="input_log" />
+
+        <input type="submit" value="Inscription" id="login_button" />
+      </form>
+      <div style="display: flex; flex-direction: row; margin-left: 5%;">
+        <p style="margin-top: 0px;">Vous avez déjà un compte ?</p>
+        <a style="color: #2a9e9e;" routerLink="/connexion">Connectez-vous ici</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="d-flex h-100 text-dark cover">
+  <div class="cover-container d-flex w-100 h-100 flex-column">
+    <header class="mb-auto">
+      <div>
+        <h3 class="float-md-start mb-0">CertManagement</h3>
+      </div>
+    </header>
+  
+  </div>
+  
+  <div class="cover-container d-flex w-100 h-100 flex-column">
+    <nav class="nav nav-masthead justify-content-center float-md-end">
+      <a class="nav-link active" aria-current="page" routerLink="/accueil" routerLinkActive="active">Home</a>
+      <a class="nav-link" routerLink="/features" routerLinkActive="active">Features</a>
+      <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<div class="certificate-container">
+  <div class="certificate">
+    <h2>Ecole Polytechnique de Thiès</h2>
+    <h3>Certificat de Diplôme</h3>
+    <p>Ce certificat est décerné à</p>
+    <h2 class="recipient-name">{{ certificate.nom }} {{ certificate.prenom }}</h2>
+    <p>né(e) le {{ certificate.annee_naissance }}</p>
+    <p>Pour avoir brillamment complété son master en {{ certificate.degree_classification }} : {{ certificate.date_of_issue }}</p>
+  </div>
+</div>
+
